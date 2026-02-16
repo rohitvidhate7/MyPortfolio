@@ -6,24 +6,18 @@ const Skills = () => {
     { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', category: 'frontend' },
     { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', category: 'frontend' },
     { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', category: 'frontend' },
-    { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg', category: 'frontend' },
-    { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', category: 'frontend' },
+    { name: 'React.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', category: 'frontend' },
     { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg', category: 'backend' },
-    { name: 'Express.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg', category: 'backend' },
     { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg', category: 'backend' },
-    { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg', category: 'backend' },
-    { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg', category: 'backend' },
-   
+    { name: 'Git & GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', category: 'tools' },
   ]
 
   const tools = [
-    { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
     { name: 'Vercel', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg' },
     { name: 'Firebase', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg' },
     { name: 'Netlify', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/netlify/netlify-original.svg' },
     { name: 'Redux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg' },
     { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
-    { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
     { name: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg' },
     { name: 'Vite', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vite/vite-original.svg' },
     { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
@@ -92,14 +86,18 @@ const Skills = () => {
                 className="skill-card"
                 variants={itemVariants}
                 whileHover={{ 
-                  y: -10, 
+                  scale: 1.05,
                   boxShadow: "0 20px 40px rgba(0, 255, 255, 0.3)",
                   borderColor: "rgba(0, 255, 255, 0.5)"
                 }}
               >
-                <div className="skill-icon">
+                <motion.div 
+                  className="skill-icon"
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                >
                   <img src={skill.icon} alt={skill.name} />
-                </div>
+                </motion.div>
                 <span className="skill-name">{skill.name}</span>
                 <span className="skill-category">{skill.category}</span>
               </motion.div>
@@ -123,14 +121,18 @@ const Skills = () => {
                 className="skill-card tool-card"
                 variants={itemVariants}
                 whileHover={{ 
-                  y: -10, 
+                  scale: 1.05,
                   boxShadow: "0 20px 40px rgba(138, 43, 226, 0.3)",
                   borderColor: "rgba(138, 43, 226, 0.5)"
                 }}
               >
-                <div className="skill-icon">
+                <motion.div 
+                  className="skill-icon"
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                >
                   <img src={tool.icon} alt={tool.name} />
-                </div>
+                </motion.div>
                 <span className="skill-name">{tool.name}</span>
               </motion.div>
             ))}
