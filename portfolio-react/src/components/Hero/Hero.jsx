@@ -130,7 +130,7 @@ const Hero = () => {
               target="_blank" 
               rel="noopener noreferrer"
               className="social-icon"
-              whileHover={{ y: -5, color: '#ffffff' }}
+              whileHover={{ y: -5, color: '#000000' }}
             >
               <FaGithub />
             </motion.a>

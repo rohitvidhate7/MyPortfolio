@@ -64,10 +64,10 @@ const Contact = () => {
   }
 
   const contactInfo = [
-    { icon: FaUser, label: 'Name', value: 'Rohit Vidhate', subValue: 'Full Stack Developer' },
+    { icon: FaUser, label: 'Name', value: 'Rohit Sandip Vidhate', subValue: 'Full Stack Developer' },
     { icon: FaEnvelope, label: 'Email', value: 'rohitvidhate3@gmail.com', href: 'mailto:rohitvidhate3@gmail.com' },
-    { icon: FaPhone, label: 'Phone', value: '+91 7709284647', href: 'tel:7709284647' },
-    { icon: FaMapMarkerAlt, label: 'Location', value: 'Pune, India' }
+    { icon: FaPhone, label: 'Phone', value: '+91 8624921303', href: 'tel:7709284647' },
+    { icon: FaMapMarkerAlt, label: 'Location', value: 'Nashik, India' }
   ]
 
 
