@@ -6,7 +6,7 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
-  padding-top: 80px;
+  padding-top: clamp(4rem, 8vw, 5rem);
 }
 
 /* Animated Background */
@@ -70,10 +70,10 @@
 .hero-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 clamp(1rem, 3vw, 1.25rem);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: clamp(2rem, 5vw, 4rem);
   align-items: center;
   position: relative;
   z-index: 1;
@@ -86,14 +86,14 @@
 }
 
 .hero-greeting {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
   color: var(--accent-cyan);
   margin-bottom: 0.5rem;
   font-weight: 500;
 }
 
 .hero-name {
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1rem;
@@ -108,7 +108,7 @@
 }
 
 .hero-title {
-  font-size: 1.75rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
   font-weight: 600;
   margin-bottom: 1.5rem;
   color: var(--text-secondary);
@@ -129,28 +129,31 @@
 }
 
 .hero-description {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
   line-height: 1.8;
   color: var(--text-muted);
   margin-bottom: 2rem;
-  max-width: 500px;
+  max-width: clamp(300px, 80%, 500px);
 }
 
 /* Hero Buttons */
 .hero-buttons {
   display: flex;
-  gap: 1rem;
+  gap: clamp(0.75rem, 2vw, 1rem);
   margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .btn-primary,
 .btn-secondary {
-  padding: 14px 32px;
+  padding: clamp(0.75rem, 2vw, 0.875rem) clamp(1.5rem, 4vw, 2rem);
   border-radius: 50px;
-  font-size: 1rem;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
+  min-height: 44px;
 }
 
 .btn-primary {
@@ -192,8 +195,8 @@
 
 .image-wrapper {
   position: relative;
-  width: 350px;
-  height: 350px;
+  width: clamp(250px, 35vw, 350px);
+  aspect-ratio: 1 / 1;
 }
 
 .image-glow {
@@ -289,22 +292,21 @@
   }
 
   .image-wrapper {
-    width: 280px;
-    height: 280px;
+    width: clamp(220px, 50vw, 280px);
   }
 }
 
 @media (max-width: 768px) {
   .hero-name {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 6vw, 2.5rem);
   }
 
   .hero-title {
-    font-size: 1.25rem;
+    font-size: clamp(1.1rem, 3vw, 1.25rem);
   }
 
   .hero-description {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
   }
 
   .hero-buttons {
@@ -314,8 +316,32 @@
 
   .btn-primary,
   .btn-secondary {
-    width: 100%;
-    max-width: 250px;
+    width: min(100%, 280px);
+    max-width: 280px;
     text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-greeting {
+    font-size: 0.9rem;
+  }
+
+  .hero-name {
+    font-size: clamp(1.75rem, 8vw, 2.25rem);
+  }
+
+  .hero-title {
+    font-size: clamp(1rem, 3.5vw, 1.15rem);
+  }
+
+  .image-wrapper {
+    width: min(70vw, 240px);
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: min(85vw, 260px);
+    max-width: 260px;
   }
 }

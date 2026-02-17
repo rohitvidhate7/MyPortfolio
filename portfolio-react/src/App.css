@@ -69,13 +69,19 @@ html {
 /* Section Base Styles */
 section {
   position: relative;
-  padding: 80px 0;
+  padding: clamp(3rem, 5vw, 5rem) 0;
   overflow: hidden;
 }
 
 @media (max-width: 768px) {
   section {
-    padding: 60px 0;
+    padding: clamp(2.5rem, 4vw, 3.75rem) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: clamp(2rem, 3vw, 2.5rem) 0;
   }
 }
 
