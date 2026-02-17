@@ -8,92 +8,89 @@ const categoryIcons = {
   cloud: '☁️',
   data: '📊',
   ai: '🤖',
-  programming: '💻',
-  internship: '💼',
-  hackathon: '🏆'
-  
+  programming: '💻'
 }
 
 const certificates = [
   {
     id: 1,
     title: "Front-End Web Development",
-    issuer: "N.S.D.C",
+    issuer: "Coursera",
     category: "web",
-    year: "2025",
+    year: "2024",
     description: "Comprehensive MERN stack development certification",
     image: "./src/Assets/cert1.jpg",
-    credentialUrl: "./src/Assets/cert1.jpg"
+    credentialUrl: "#"
   },
   {
     id: 2,
     title: "AWS Certified Solutions Architect",
     issuer: "Amazon Web Services",
     category: "cloud",
-    year: "2025",
+    year: "2024",
     description: "Cloud architecture and design principles",
     image: "./src/Assets/cert2.jpg",
-    credentialUrl: "./src/Assets/cert2.jpg"
+    credentialUrl: "#"
   },
   {
     id: 3,
-    title: "Data Science & Analytics ",
+    title: "Microsoft Certified: C# Fundamentals",
     issuer: "Microsoft",
     category: "programming",
-    year: "2025",
+    year: "2023",
     description: "C# programming language certification",
     image: "./src/Assets/cert3.jpg",
-    credentialUrl: "./src/Assets/cert3.jpg"
+    credentialUrl: "#"
   },
   {
     id: 4,
-    title: "Microsoft Certified: C# Fundamentals",
+    title: "Data Analytics Certification",
     issuer: "DataCamp",
     category: "data",
-    year: "2025",
+    year: "2024",
     description: "Data analysis and visualization with Python",
     image: "./src/Assets/cert4.jpg",
-    credentialUrl: "./src/Assets/cert4.jpg"
+    credentialUrl: "#"
   },
   {
     id: 5,
-    title: "Solutions Architect",
+    title: "GenAI Job Simulation",
     issuer: "Forage",
     category: "ai",
-    year: "2025",
+    year: "2024",
     description: "Generative AI and LLM implementation",
     image: "./src/Assets/cert5.jpg",
-    credentialUrl: "./src/Assets/cert5.jpg"
+    credentialUrl: "#"
   },
   {
     id: 6,
-    title: "GenAI Job Simulation",
+    title: "React.js Advanced Patterns",
     issuer: "Udemy",
     category: "web",
-    year: "2025",
+    year: "2023",
     description: "Advanced React.js patterns and best practices",
     image: "./src/Assets/cert6.jpg",
-    credentialUrl: "./src/Assets/cert6.jpg"
+    credentialUrl: "#"
   },
   {
     id: 7,
-    title: "Front-End Web Development ",
-    issuer: "CodeAlpha",
-    category: "internship",
-    year: "2025",
-    description: "Frontend Development Intern with hands-on experience in creating responsive and interactive web applications.",
+    title: "Google Cloud Fundamentals",
+    issuer: "Google Cloud",
+    category: "cloud",
+    year: "2023",
+    description: "Introduction to cloud computing with GCP",
     image: "./src/Assets/cert7.jpg",
-    credentialUrl: "./src/Assets/cert7.jpg"
+    credentialUrl: "#"
   },
   {
     id: 8,
-    title: "Hackathon",
-    issuer: "SIH-2025",
-    category: "hackathon",
-    year: "2025",
-    description: "Participated in a hackathon to design and develop an innovative solution within a limited time",
+    title: "Python for Data Science",
+    issuer: "IBM",
+    category: "data",
+    year: "2023",
+    description: "Python programming for data analysis",
     image: "./src/Assets/cert8.jpg",
-    credentialUrl: "./src/Assets/cert8.jpg"
+    credentialUrl: "#"
   }
 ]
 
@@ -103,9 +100,7 @@ const filterTabs = [
   { id: 'cloud', label: 'Cloud' },
   { id: 'data', label: 'Data' },
   { id: 'ai', label: 'AI' },
-  { id: 'programming', label: 'Programming' },
-  { id: 'internship', label: 'Internship' },
-  { id: 'hackathon', label: 'Hackathon' }
+  { id: 'programming', label: 'Programming' }
 ]
 
 const Certificates = () => {
@@ -204,7 +199,7 @@ const Certificates = () => {
                           rel="noopener noreferrer" 
                           className="verify-btn"
                         >
-                          <span>View</span>
+                          <span>Verify</span>
                           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                             <polyline points="15 3 21 3 21 9"/>
