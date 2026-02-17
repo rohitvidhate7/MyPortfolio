@@ -112,30 +112,32 @@ const Projects = () => {
             className="project-card"
             variants={itemVariants}
             whileHover={{ 
-              y: -10,
-              boxShadow: "0 30px 60px rgba(0, 255, 255, 0.2)"
+              y: -12,
+              scale: 1.02
             }}
           >
-            <div className="project-image">
-              <img src={project.image} alt={project.title} />
-              <div className="project-overlay">
-                <div className="project-links">
-                  <a href={project.liveLink} className="project-link" target="_blank" rel="noopener noreferrer">
-                    Live Demo
-                  </a>
-                  <a href={project.githubLink} className="project-link" target="_blank" rel="noopener noreferrer">
-                    GitHub
-                  </a>
+            <div className="project-card-inner">
+              <div className="project-image">
+                <img src={project.image} alt={project.title} />
+                <div className="project-overlay">
+                  <div className="project-links">
+                    <a href={project.liveLink} className="project-link" target="_blank" rel="noopener noreferrer">
+                      Live Demo
+                    </a>
+                    <a href={project.githubLink} className="project-link" target="_blank" rel="noopener noreferrer">
+                      GitHub
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="project-content">
-              <h3 className="project-title">{project.title}</h3>
-              <p className="project-description">{project.description}</p>
-              <div className="project-tags">
-                {project.tags.map((tag, index) => (
-                  <span key={index} className="project-tag">{tag}</span>
-                ))}
+              <div className="project-content">
+                <h3 className="project-title">{project.title}</h3>
+                <p className="project-description">{project.description}</p>
+                <div className="project-tags">
+                  {project.tags.map((tag, index) => (
+                    <span key={index} className="project-tag">{tag}</span>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>
