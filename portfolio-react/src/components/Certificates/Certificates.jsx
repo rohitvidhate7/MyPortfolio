@@ -2,6 +2,16 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './Certificates.css'
 
+// Import certificate images
+import cert1 from '../../Assets/cert1.jpg'
+import cert2 from '../../Assets/cert2.jpg'
+import cert3 from '../../Assets/cert3.jpg'
+import cert4 from '../../Assets/cert4.jpg'
+import cert5 from '../../Assets/cert5.jpg'
+import cert6 from '../../Assets/cert6.jpg'
+import cert7 from '../../Assets/cert7.jpg'
+import cert8 from '../../Assets/cert8.jpg'
+
 // Certificate category icons (using emoji for simplicity - can be replaced with SVG icons)
 const categoryIcons = {
   web: '🌐',
@@ -22,8 +32,8 @@ const certificates = [
     category: "web",
     year: "2025",
     description: "Comprehensive MERN stack development certification",
-    image: "./src/Assets/cert1.jpg",
-    credentialUrl: "./src/Assets/cert1.jpg"
+    image: cert1,
+    credentialUrl: cert1
   },
   {
     id: 2,
@@ -32,8 +42,8 @@ const certificates = [
     category: "cloud",
     year: "2025",
     description: "Cloud architecture and design principles",
-    image: "./src/Assets/cert2.jpg",
-    credentialUrl: "./src/Assets/cert2.jpg"
+    image: cert2,
+    credentialUrl: cert2
   },
   {
     id: 3,
@@ -42,8 +52,8 @@ const certificates = [
     category: "programming",
     year: "2025",
     description: "C# programming language certification",
-    image: "./src/Assets/cert3.jpg",
-    credentialUrl: "./src/Assets/cert3.jpg"
+    image: cert3,
+    credentialUrl: cert3
   },
   {
     id: 4,
@@ -52,8 +62,8 @@ const certificates = [
     category: "data",
     year: "2025",
     description: "Data analysis and visualization with Python",
-    image: "./src/Assets/cert4.jpg",
-    credentialUrl: "./src/Assets/cert4.jpg"
+    image: cert4,
+    credentialUrl: cert4
   },
   {
     id: 5,
@@ -62,8 +72,8 @@ const certificates = [
     category: "ai",
     year: "2025",
     description: "Generative AI and LLM implementation",
-    image: "./src/Assets/cert5.jpg",
-    credentialUrl: "./src/Assets/cert5.jpg"
+    image: cert5,
+    credentialUrl: cert5
   },
   {
     id: 6,
@@ -72,8 +82,8 @@ const certificates = [
     category: "web",
     year: "2025",
     description: "Advanced React.js patterns and best practices",
-    image: "./src/Assets/cert6.jpg",
-    credentialUrl: "./src/Assets/cert6.jpg"
+    image: cert6,
+    credentialUrl: cert6
   },
   {
     id: 7,
@@ -82,8 +92,8 @@ const certificates = [
     category: "internship",
     year: "2025",
     description: "Frontend Development Intern with hands-on experience in creating responsive and interactive web applications.",
-    image: "./src/Assets/cert7.jpg",
-    credentialUrl: "./src/Assets/cert7.jpg"
+    image: cert7,
+    credentialUrl: cert7
   },
   {
     id: 8,
@@ -92,8 +102,8 @@ const certificates = [
     category: "hackathon",
     year: "2025",
     description: "Participated in a hackathon to design and develop an innovative solution within a limited time",
-    image: "./src/Assets/cert8.jpg",
-    credentialUrl: "./src/Assets/cert8.jpg"
+    image: cert8,
+    credentialUrl: cert8
   }
 ]
 
