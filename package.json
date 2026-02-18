@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "build": "cd portfolio-react && npm run build",
+    "dev": "cd portfolio-react && npm run dev",
+    "preview": "cd portfolio-react && npm run preview"
+  },
   "dependencies": {
     "portfolio-react": "file:portfolio-react"
   }
