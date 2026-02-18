@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { FaDownload, FaEnvelope, FaCode, FaDatabase, FaServer, FaGraduationCap, FaHeart } from 'react-icons/fa'
+import { FaDownload, FaEnvelope, FaGraduationCap, FaHeart } from 'react-icons/fa'
 import rohit2 from '../../Assets/rohit2.jpg'
 import './About.css'
 
@@ -55,13 +55,6 @@ const About = () => {
       }
     }
   }
-
-  // Skills data
-  const skills = [
-    { icon: <FaCode />, name: "Frontend", items: ["React.js", "JavaScript", "HTML5", "CSS3", "Tailwind"], color: "#00ffff" },
-    { icon: <FaServer />, name: "Backend", items: ["Node.js", "Express", "MongoDB", "REST APIs"], color: "#8a2be2" },
-    { icon: <FaDatabase />, name: "Tools", items: ["Git", "VS Code", "Postman", "Docker"], color: "#00ff88" }
-  ]
 
   // Stats data
   const stats = [
@@ -145,37 +138,6 @@ const About = () => {
               My approach combines technical excellence with creative problem-solving, 
               ensuring every project delivers exceptional user experiences and measurable value.
             </p>
-          </motion.div>
-
-          {/* Skills Grid */}
-          <motion.div className="skills-container" variants={itemVariants}>
-            <h3 className="skills-heading">Technical Expertise</h3>
-            <div className="skills-grid">
-              {skills.map((skill, index) => (
-                <motion.div 
-                  key={index}
-                  className="skill-item"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.02, x: 10 }}
-                  style={{ '--skill-color': skill.color }}
-                >
-                  <div className="skill-icon-wrapper">
-                    {skill.icon}
-                  </div>
-                  <div className="skill-info">
-                    <h4>{skill.name}</h4>
-                    <div className="skill-tags">
-                      {skill.items.map((item, idx) => (
-                        <span key={idx}>{item}</span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
           </motion.div>
 
           {/* Info Cards */}
