@@ -117,6 +117,14 @@ const Certificates = () => {
 
   return (
     <section id="certificates" className="certificates">
+      {/* Animated Background */}
+      <div className="certificates-bg">
+        <div className="certificates-orb certificates-orb-1"></div>
+        <div className="certificates-orb certificates-orb-2"></div>
+        <div className="certificates-orb certificates-orb-3"></div>
+        <div className="certificates-grid-overlay"></div>
+      </div>
+      
       <div className="certificates-glow"></div>
       
       <div className="section-header">

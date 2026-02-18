@@ -16,6 +16,9 @@ Thumbs.db
 # Environment / secret files
 .env
 .env.local
+
+# Ignore problematic paths
+portfolio-react/src/components/Projects./
 config.js
 keys.json
 

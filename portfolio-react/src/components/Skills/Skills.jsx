@@ -56,6 +56,14 @@ const Skills = () => {
 
   return (
     <section id="skills" className="skills">
+      {/* Animated Background */}
+      <div className="skills-bg">
+        <div className="skills-orb skills-orb-1"></div>
+        <div className="skills-orb skills-orb-2"></div>
+        <div className="skills-orb skills-orb-3"></div>
+        <div className="skills-grid-overlay"></div>
+      </div>
+      
       <div className="section-header">
         <motion.h2 
           className="section-title"

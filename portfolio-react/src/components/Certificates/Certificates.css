@@ -7,6 +7,79 @@
   overflow: hidden;
 }
 
+/* Animated Background Orbs */
+.certificates-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.certificates-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+}
+
+.certificates-orb-1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--accent-purple) 0%, transparent 70%);
+  top: -100px;
+  left: -100px;
+  animation: certFloat1 8s ease-in-out infinite;
+}
+
+.certificates-orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--accent-cyan) 0%, transparent 70%);
+  bottom: -150px;
+  right: -150px;
+  animation: certFloat2 10s ease-in-out infinite reverse;
+}
+
+.certificates-orb-3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, var(--accent-blue) 0%, transparent 70%);
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  animation: certPulse 6s ease-in-out infinite;
+}
+
+.certificates-grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+@keyframes certFloat1 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, 30px); }
+}
+
+@keyframes certFloat2 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-30px, -30px); }
+}
+
+@keyframes certPulse {
+  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.1); }
+}
+
 /* Background Glow Effect */
 .certificates-glow {
   position: absolute;
