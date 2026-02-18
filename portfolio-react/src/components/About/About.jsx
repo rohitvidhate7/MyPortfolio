@@ -151,9 +151,9 @@ const About = () => {
               </div>
               <div className="card-content">
                 <h4>Education</h4>
-                <p className="degree">BE in Information Technology</p>
+                <p className="degree">BE in Electronic and Computer Engineering</p>
                 <p className="university">Pune University</p>
-                <span className="year">2021 - 2025</span>
+                <span className="year">2024 - 2027</span>
               </div>
             </motion.div>
 
@@ -168,9 +168,10 @@ const About = () => {
                 <h4>Interests</h4>
                 <div className="interest-tags">
                   <span>Reading</span>
-                  <span>Gaming</span>
+                  <span>Sport</span>
                   <span>Music</span>
                   <span>Fitness</span>
+                  <span>Learning New Technologys</span>
                 </div>
               </div>
             </motion.div>
