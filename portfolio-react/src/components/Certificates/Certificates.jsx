@@ -11,6 +11,7 @@ import cert5 from '../../Assets/cert5.jpg'
 import cert6 from '../../Assets/cert6.jpg'
 import cert7 from '../../Assets/cert7.jpg'
 import cert8 from '../../Assets/cert8.jpg'
+import wsa from '../../Assets/wsa.png'
 
 // Certificate category icons (using emoji for simplicity - can be replaced with SVG icons)
 const categoryIcons = {
@@ -58,7 +59,7 @@ const certificates = [
   {
     id: 4,
     title: "Microsoft Certified: C# Fundamentals",
-    issuer: "DataCamp",
+    issuer: "FreeCodeCamp",
     category: "data",
     year: "2025",
     description: "Data analysis and visualization with Python",
@@ -78,7 +79,7 @@ const certificates = [
   {
     id: 6,
     title: "GenAI Job Simulation",
-    issuer: "Udemy",
+    issuer: "Forage",
     category: "web",
     year: "2025",
     description: "Advanced React.js patterns and best practices",
@@ -95,6 +96,7 @@ const certificates = [
     image: cert7,
     credentialUrl: cert7
   },
+  
   {
     id: 8,
     title: "Hackathon",
@@ -104,6 +106,16 @@ const certificates = [
     description: "Participated in a hackathon to design and develop an innovative solution within a limited time",
     image: cert8,
     credentialUrl: cert8
+  },
+  {
+    id: 9,
+    title: "MERN Stack Development ",
+    issuer: "WSA",
+    category: "internship",
+    year: "2025",
+    description: "MERN Stack Development Intern with hands-on experience in creating responsive and interactive web applications.",
+    image: wsa,
+    credentialUrl: wsa
   }
 ]
 
