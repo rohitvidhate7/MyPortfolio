@@ -1,174 +1,158 @@
-import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa'
-import './Hero.css'
+import { FaLinkedin, FaGithub, FaEnvelope, FaFileDownload, FaArrowRight, FaCode } from 'react-icons/fa'
 import { assets } from './assets'
+import resumePDF from '../../Assets/Rohit-vidhate-CV.pdf'
+import './Hero.css'
 
 const Hero = () => {
-  const [typedText, setTypedText] = useState('')
-  const texts = ['Full Stack Developer', 'Frontend Specialist', 'React Developer']
-  const [textIndex, setTextIndex] = useState(0)
-
-  useEffect(() => {
-    let charIndex = 0
-    let isDeleting = false
-    const currentText = texts[textIndex]
-
-    const typeInterval = setInterval(() => {
-      if (!isDeleting) {
-        setTypedText(currentText.substring(0, charIndex + 1))
-        charIndex++
-        if (charIndex === currentText.length) {
-          setTimeout(() => {
-            isDeleting = true
-          }, 2000)
-        }
-      } else {
-        setTypedText(currentText.substring(0, charIndex - 1))
-        charIndex--
-        if (charIndex === 0) {
-          isDeleting = false
-          setTextIndex((prev) => (prev + 1) % texts.length)
-        }
-      }
-    }, isDeleting ? 50 : 100)
-
-    return () => clearInterval(typeInterval)
-  }, [textIndex])
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  }
-
   return (
-    <section id="home" className="hero">
-      {/* Animated Background */}
-      <div className="hero-bg">
-        <div className="gradient-orb orb-1"></div>
-        <div className="gradient-orb orb-2"></div>
-        <div className="gradient-orb orb-3"></div>
-        <div className="grid-overlay"></div>
-      </div>
+    <section id="home" className="hero-section">
+      {/* Ambient Radial Glow & Grid Background */}
+      <div className="hero-ambient-glow" />
+      <div className="hero-dot-grid" />
 
-      <div className="hero-container">
-        <motion.div 
-          className="hero-content"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.p className="hero-greeting" variants={itemVariants}>
-            Hello! 👋 I'm
-          </motion.p>
-          
-          <motion.h1 className="hero-name" variants={itemVariants}>
-            <span className="name-highlight">Rohit</span> Vidhate
+      {/* Hero Stage with 3D Layering */}
+      <div className="hero-stage">
+        {/* Step 1: Perfectly Centered Massive Metallic Background Text */}
+        <div className="hero-giant-text-container">
+          <motion.h1 
+            className="hero-giant-text select-none"
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            aria-hidden="true"
+          >
+            PORTFOLIO
           </motion.h1>
+        </div>
 
-          <motion.h2 className="hero-title" variants={itemVariants}>
-            <span className="typed-text">{typedText}</span>
-            <span className="cursor">|</span>
-          </motion.h2>
-
-          <motion.p className="hero-description" variants={itemVariants}>
-            Passionate Full Stack Developer with hands-on experience in MERN stack, 
-            frontend development, cloud basics, and data analytics. Building modern, 
-            responsive, and user-friendly web experiences.
-          </motion.p>
-
-          <motion.div className="hero-buttons" variants={itemVariants}>
-            <motion.a 
-              href="#projects" 
-              className="btn-primary"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(0, 255, 255, 0.5)" }}
-              whileTap={{ scale: 0.95 }}
-            >
-              View Projects
-            </motion.a>
-            <motion.a 
-              href="./src/Assets/RohitVidhate CV.pdf" 
-              className="btn-secondary"
-              download
-              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(138, 43, 226, 0.5)" }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Download CV
-            </motion.a>
-          </motion.div>
-
-          <motion.div className="hero-socials" variants={itemVariants}>
-            <motion.a 
-              href="https://www.linkedin.com/in/rohit-vidhate-323b3a282" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="social-icon"
-              whileHover={{ y: -5, color: '#0A66C2' }}
-            >
-              <FaLinkedin />
-            </motion.a>
-            <motion.a 
-              href="https://github.com/rohitvidhate7" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="social-icon"
-              whileHover={{ y: -5, color: '#000000' }}
-            >
-              <FaGithub />
-            </motion.a>
-            <motion.a 
-              href="mailto:rohitvidhate3@gamil.com" 
-              className="social-icon"
-              whileHover={{ y: -5, color: '#EA4335' }}
-            >
-              <FaEnvelope />
-            </motion.a>
-          </motion.div>
+        {/* Step 2: Cutout Portrait Layer Intersecting in Front of Text */}
+        <motion.div 
+          className="hero-portrait-wrapper"
+          initial={{ opacity: 0, y: 35 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.85, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <img 
+            src={assets.heroRemoveBg} 
+            alt="Rohit Vidhate - Software Developer" 
+            className="hero-portrait-img"
+          />
+          {/* Bottom vignette blending portrait cleanly into dark background */}
+          <div className="hero-portrait-vignette" />
         </motion.div>
 
+        {/* Step 3: Foreground Floating Badges */}
+        {/* Role Badge - Left */}
         <motion.div 
-          className="hero-image"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          className="hero-floating-badge badge-left"
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          whileHover={{ y: -4, scale: 1.02 }}
         >
-          <div className="image-wrapper">
-            <div className="image-glow"></div>
-            <img 
-              src={assets.hero} 
-              alt="Rohit Vidhate" 
-            />
+          <div className="badge-status-dot" />
+          <div>
+            <span className="badge-subtitle">Available For Opportunities</span>
+            <h3 className="badge-title">Software Developer</h3>
           </div>
         </motion.div>
+
+        {/* Tech Stack Badge - Right */}
+        <motion.div 
+          className="hero-floating-badge badge-right"
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          whileHover={{ y: -4, scale: 1.02 }}
+        >
+          <div className="badge-icon-box">
+            <FaCode />
+          </div>
+          <div>
+            <span className="badge-subtitle">Specialization</span>
+            <h3 className="badge-title">MERN & Full Stack</h3>
+          </div>
+        </motion.div>
+
+        {/* Developer Name Pill - Exactly Centered at the Base of the Photo */}
+        <div className="hero-dev-tag-container">
+          <motion.div 
+            className="hero-dev-tag"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.35 }}
+          >
+            <span className="hero-name-pill">ROHIT VIDHATE</span>
+          </motion.div>
+        </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Hero Bottom Action Controls */}
       <motion.div 
-        className="scroll-indicator"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity }}
+        className="hero-bottom-bar"
+        initial={{ opacity: 0, y: 25 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
       >
-        <span>Scroll</span>
-        <div className="scroll-arrow"></div>
+        <div className="hero-cta-group">
+          <a href="#contact" className="btn-neon">
+            <span>Contact Me</span>
+            <FaArrowRight className="btn-arrow" />
+          </a>
+          <a href="#projects" className="btn-dark">
+            <span>Selected Work</span>
+          </a>
+          <a 
+            href={resumePDF} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            download="Rohit-vidhate-CV.pdf"
+            className="btn-dark btn-icon-only"
+            title="Download Resume"
+          >
+            <FaFileDownload />
+            <span>CV</span>
+          </a>
+        </div>
+
+        {/* Social Links */}
+        <div className="hero-social-strip">
+          <a 
+            href="https://github.com/rohitvidhate7" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="social-pill"
+            aria-label="GitHub"
+          >
+            <FaGithub />
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/rohit-vidhate-323b3a282" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="social-pill"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin />
+          </a>
+          <a 
+            href="mailto:rohitvidhate3@gmail.com" 
+            className="social-pill"
+            aria-label="Email"
+          >
+            <FaEnvelope />
+          </a>
+        </div>
       </motion.div>
+
+      {/* Subtle Scroll Cue */}
+      <div className="hero-scroll-cue">
+        <span className="scroll-label">SCROLL</span>
+        <div className="scroll-line">
+          <div className="scroll-dot" />
+        </div>
+      </div>
     </section>
   )
 }

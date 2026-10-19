@@ -1,5 +1,5 @@
-import heroImage from '../../Assets/rohit.jpg'
-import heroImageRemoveBg from '../../Assets/rohit-removebg-preview (2).png'
+import heroImage from '../../Assets/aboutrohit-img.png'
+import heroImageRemoveBg from '../../Assets/rohitnew-img.png'
 
 export const assets = {
   hero: heroImage,

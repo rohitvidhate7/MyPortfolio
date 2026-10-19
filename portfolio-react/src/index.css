@@ -1,80 +1,61 @@
 /* ========================================
-   CSS Variables & Global Styles
+   Modern Dark-Mode Design System & Global Styles
+   Neon Green Accent (#c4ff00) + Metallic Typography
    ======================================== */
 
-/* Color Palette - Dark Mode First */
 :root {
-  /* Background Colors */
-  --bg-dark: #0a0a14;
-  --bg-darker: #050508;
-  --bg-card: rgba(255, 255, 255, 0.03);
+  /* Dark Color Palette */
+  --bg-dark: #09090b;
+  --bg-darker: #040405;
+  --bg-card: #121216;
+  --bg-card-hover: #18181f;
+  --bg-card-glass: rgba(18, 18, 24, 0.75);
   
   /* Text Colors */
   --text-primary: #ffffff;
-  --text-secondary: #b0b0b0;
-  --text-muted: #6b7280;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --text-dim: #52525b;
   
-  /* Accent Colors - Neon Gradient */
-  --accent-cyan: #00ffff;
-  --accent-blue: #0080ff;
-  --accent-purple: #8a2be2;
-  --accent-pink: #ff00ff;
+  /* Signature Neon Lime Accent */
+  --neon-lime: #c4ff00;
+  --neon-lime-rgb: 196, 255, 0;
+  --neon-lime-glow: rgba(196, 255, 0, 0.35);
+  --neon-lime-soft: rgba(196, 255, 0, 0.12);
   
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-  --gradient-secondary: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
-  --gradient-accent: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+  /* Metallic Chrome Gradients */
+  --metallic-gradient: linear-gradient(180deg, #ffffff 0%, #e4e4e7 40%, #71717a 75%, #3f3f46 100%);
+  --metallic-subtle: linear-gradient(180deg, #e4e4e7 0%, #a1a1aa 50%, #52525b 100%);
+  --metallic-dark: linear-gradient(180deg, #27272a 0%, #18181b 100%);
+  
+  /* Border & Glass */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-light: rgba(255, 255, 255, 0.14);
+  --border-active: #c4ff00;
+  
+  /* Typography */
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   
   /* Shadows */
-  --shadow-glow-cyan: 0 0 30px rgba(0, 255, 255, 0.3);
-  --shadow-glow-purple: 0 0 30px rgba(138, 43, 226, 0.3);
-  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+  --shadow-glow: 0 0 35px var(--neon-lime-glow);
+  --shadow-glow-sm: 0 0 15px rgba(196, 255, 0, 0.25);
   
-  /* Glass Effect */
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  
-  /* Spacing */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 3rem;
-  --spacing-2xl: 4rem;
-  
-  /* Border Radius */
+  /* Spacing & Radii */
   --radius-sm: 8px;
-  --radius-md: 12px;
+  --radius-md: 14px;
   --radius-lg: 20px;
-  --radius-xl: 30px;
-  --radius-full: 50%;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
   
-  /* Transitions */
-  --transition-fast: 0.2s ease;
-  --transition-normal: 0.3s ease;
-  --transition-slow: 0.5s ease;
-  
-  /* Font Family */
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  --font-mono: 'Fira Code', 'Courier New', monospace;
-  
-  /* Fluid Typography Base - Using clamp() for smooth scaling from 320px to 4K */
-  --font-xs: clamp(0.65rem, 0.6rem + 0.25vw, 0.75rem);
-  --font-sm: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-  --font-base: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
-  --font-md: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
-  --font-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
-  --font-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
-  --font-2xl: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
-  --font-3xl: clamp(1.75rem, 1.3rem + 2.25vw, 2.5rem);
-  --font-4xl: clamp(2rem, 1.4rem + 3vw, 3rem);
-  --font-5xl: clamp(2.5rem, 1.5rem + 5vw, 4rem);
+  --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ========================================
-   Global Reset & Base Styles
-   ======================================== */
-
+/* Global Reset */
 *,
 *::before,
 *::after {
@@ -86,6 +67,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  background-color: var(--bg-dark);
 }
 
 body {
@@ -98,15 +80,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Selection */
+/* Custom Selection */
 ::selection {
-  background: var(--accent-purple);
-  color: var(--text-primary);
+  background: var(--neon-lime);
+  color: #000000;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -114,53 +96,39 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
+  background: #27272a;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--accent-purple), var(--accent-blue));
+  background: var(--neon-lime);
 }
 
-/* ========================================
-   Typography
-   ======================================== */
-
+/* Typography Base */
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
   font-weight: 700;
-  line-height: 1.2;
+  letter-spacing: -0.03em;
   color: var(--text-primary);
-}
-
-h1 {
-  font-size: var(--font-5xl);
-}
-
-h2 {
-  font-size: var(--font-4xl);
-}
-
-h3 {
-  font-size: var(--font-2xl);
-}
-
-h4 {
-  font-size: var(--font-xl);
 }
 
 p {
   color: var(--text-secondary);
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: all var(--transition-fast);
 }
 
-a:hover {
-  color: var(--accent-cyan);
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
 }
 
 ul {
@@ -173,172 +141,168 @@ img {
   display: block;
 }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  outline: none;
-}
-
-/* ========================================
-   Utility Classes
-   ======================================== */
-
+/* Global Layout Container */
 .container {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 var(--spacing-lg);
+  padding: 0 1.5rem;
 }
 
-.section-title {
-  font-size: var(--font-3xl);
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: var(--spacing-xl);
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-cyan) 50%, var(--accent-purple) 100%);
+/* Metallic Text Utilities */
+.metallic-text {
+  background: var(--metallic-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Glass Card Effect */
+.neon-text {
+  color: var(--neon-lime);
+}
+
+/* Common Section Headers */
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  background: rgba(196, 255, 0, 0.08);
+  border: 1px solid rgba(196, 255, 0, 0.25);
+  color: var(--neon-lime);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.section-tag .tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--neon-lime);
+  box-shadow: 0 0 8px var(--neon-lime);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+.section-title {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  color: var(--text-secondary);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* Glass Card */
 .glass-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
+  background: var(--bg-card-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   transition: all var(--transition-normal);
 }
 
 .glass-card:hover {
-  border-color: rgba(0, 255, 255, 0.3);
-  box-shadow: var(--shadow-card);
+  border-color: var(--border-light);
 }
 
-/* Gradient Text */
-.gradient-text {
-  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Primary Button with Neon Accent */
+.btn-neon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.85rem;
+  border-radius: var(--radius-full);
+  background: var(--neon-lime);
+  color: #000000;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(196, 255, 0, 0.25);
 }
 
-/* Glow Effects */
-.glow-cyan {
-  box-shadow: var(--shadow-glow-cyan);
+.btn-neon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(196, 255, 0, 0.45);
+  background: #d4ff33;
 }
 
-.glow-purple {
-  box-shadow: var(--shadow-glow-purple);
+/* Secondary Dark Button */
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.85rem;
+  border-radius: var(--radius-full);
+  background: #18181b;
+  color: #ffffff;
+  border: 1px solid var(--border-light);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  cursor: pointer;
 }
 
-/* ========================================
-   Animations
-   ======================================== */
+.btn-dark:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: #27272a;
+  transform: translateY(-2px);
+}
 
-@keyframes float {
+/* Subtle dot background pattern */
+.dot-matrix-bg {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@keyframes pulse-dot {
   0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.3;
+    opacity: 1;
     transform: scale(1);
   }
   50% {
-    opacity: 0.6;
-    transform: scale(1.1);
+    opacity: 0.4;
+    transform: scale(0.85);
   }
 }
 
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes blink {
-  0%, 50% {
-    opacity: 1;
-  }
-  51%, 100% {
-    opacity: 0;
-  }
-}
-
-@keyframes morph {
-  0%, 100% {
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-  }
-  50% {
-    border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
-  }
-}
-
-@keyframes scrollDown {
-  0% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(10px);
-  }
-}
-
-/* ========================================
-   Responsive Breakpoints
-   ======================================== */
-
-@media (max-width: 1200px) {
-  :root {
-    --font-5xl: 3.5rem;
-    --font-4xl: 2.5rem;
-    --font-3xl: 2rem;
-  }
-}
-
-@media (max-width: 992px) {
-  :root {
-    --font-5xl: 3rem;
-    --font-4xl: 2rem;
-    --font-3xl: 1.75rem;
-  }
-  
-  .container {
-    padding: 0 var(--spacing-md);
-  }
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid var(--neon-lime);
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
 }
 
 @media (max-width: 768px) {
-  :root {
-    --font-5xl: 2.5rem;
-    --font-4xl: 1.75rem;
-    --font-3xl: 1.5rem;
-    --font-2xl: 1.25rem;
-  }
-  
-  .container {
-    padding: 0 var(--spacing-sm);
-  }
-}
-
-@media (max-width: 576px) {
-  :root {
-    --font-5xl: 2rem;
-    --font-4xl: 1.5rem;
-    --font-3xl: 1.25rem;
+  .custom-cursor {
+    display: none;
   }
 }

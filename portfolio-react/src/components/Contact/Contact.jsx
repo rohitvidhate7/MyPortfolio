@@ -1,6 +1,16 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaUser, FaPaperPlane, FaCheck, FaTimes } from 'react-icons/fa'
+import { 
+  FaLinkedin, 
+  FaGithub, 
+  FaEnvelope, 
+  FaPhoneAlt, 
+  FaMapMarkerAlt, 
+  FaPaperPlane, 
+  FaCheck, 
+  FaTimes,
+  FaClock
+} from 'react-icons/fa'
 import './Contact.css'
 
 const Contact = () => {
@@ -18,14 +28,6 @@ const Contact = () => {
       ...formData,
       [e.target.name]: e.target.value
     })
-  }
-
-  const handleFocus = (fieldName) => {
-    setFocusedField(fieldName)
-  }
-
-  const handleBlur = (fieldName) => {
-    setFocusedField(null)
   }
 
   const handleSubmit = async (e) => {
@@ -55,315 +57,296 @@ const Contact = () => {
         setTimeout(() => setStatus(''), 5000)
       } else {
         setStatus('error')
-        setTimeout(() => setStatus(''), 3000)
+        setTimeout(() => setStatus(''), 4000)
       }
     } catch (error) {
       setStatus('error')
-      setTimeout(() => setStatus(''), 3000)
-    }
-  }
-
-  const contactInfo = [
-    { icon: FaUser, label: 'Name', value: 'Rohit Sandip Vidhate', subValue: 'Full Stack Developer' },
-    { icon: FaEnvelope, label: 'Email', value: 'rohitvidhate3@gmail.com', href: 'mailto:rohitvidhate3@gmail.com' },
-    { icon: FaPhone, label: 'Phone', value: '+91 8624921303', href: 'tel:7709284647' },
-    { icon: FaMapMarkerAlt, label: 'Location', value: 'Nashik, India' }
-  ]
-
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.5 }
-    }
-  }
-
-  const formFieldVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { 
-      opacity: 1, 
-      x: 0,
-      transition: { duration: 0.4 }
+      setTimeout(() => setStatus(''), 4000)
     }
   }
 
   return (
-    <section id="contact" className="contact">
-      <div className="contact-bg">
-        <div className="contact-bg-gradient"></div>
-        <div className="contact-bg-glow"></div>
+    <section id="contact" className="contact-section">
+      {/* Step 4: Dotted SVG Globe / Particle Matrix Background */}
+      <div className="contact-globe-bg" aria-hidden="true">
+        <svg className="dotted-globe-svg" viewBox="0 0 1000 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Subtle latitude / longitude rings */}
+          <ellipse cx="500" cy="300" rx="420" ry="210" stroke="rgba(255,255,255,0.04)" strokeDasharray="4 8" />
+          <ellipse cx="500" cy="300" rx="360" ry="170" stroke="rgba(255,255,255,0.05)" strokeDasharray="3 6" />
+          <ellipse cx="500" cy="300" rx="260" ry="110" stroke="rgba(196,255,0,0.08)" strokeDasharray="5 7" />
+          <ellipse cx="500" cy="300" rx="150" ry="55" stroke="rgba(255,255,255,0.05)" strokeDasharray="2 4" />
+          <line x1="500" y1="50" x2="500" y2="550" stroke="rgba(255,255,255,0.05)" strokeDasharray="4 6" />
+          <line x1="100" y1="300" x2="900" y2="300" stroke="rgba(255,255,255,0.05)" strokeDasharray="4 6" />
+          
+          {/* Constellation dots */}
+          <circle cx="500" cy="300" r="4" fill="#c4ff00" opacity="0.8" />
+          <circle cx="420" cy="240" r="3" fill="#ffffff" opacity="0.6" />
+          <circle cx="580" cy="240" r="3" fill="#ffffff" opacity="0.6" />
+          <circle cx="380" cy="320" r="2.5" fill="#c4ff00" opacity="0.5" />
+          <circle cx="630" cy="320" r="3" fill="#ffffff" opacity="0.4" />
+          <circle cx="470" cy="380" r="2.5" fill="#ffffff" opacity="0.5" />
+          <circle cx="540" cy="370" r="3" fill="#c4ff00" opacity="0.6" />
+          <circle cx="280" cy="280" r="2" fill="#ffffff" opacity="0.3" />
+          <circle cx="720" cy="290" r="2" fill="#ffffff" opacity="0.3" />
+        </svg>
+        <div className="contact-radial-glow" />
       </div>
 
-      <div className="section-header">
-        <motion.h2 
-          className="section-title"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          Contact Me
-        </motion.h2>
-        <motion.p 
-          className="section-subtitle"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          Get in touch for collaborations or just a friendly hello
-        </motion.p>
-      </div>
-
-      <div className="contact-container">
-        {/* Left Column - Contact Info */}
-        <motion.div 
-          className="contact-info"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="contact-info-header">
-            <h3>Let's Connect</h3>
-            <p>
-              I'm always open to discussing new projects, creative ideas, or 
-              opportunities to be part of your visions. Feel free to reach out 
-              through any of the platforms below.
-            </p>
+      <div className="container">
+        {/* Section Header */}
+        <div className="section-header">
+          <div className="section-tag">
+            <span className="tag-dot" />
+            <span>04 / Get In Touch</span>
           </div>
+          <h2 className="section-title">
+            Let's Build Something <span className="neon-text">Great</span>
+          </h2>
+          <p className="section-subtitle">
+            Have a project in mind, an internship or full-time opportunity, or just want to connect? My inbox is always open.
+          </p>
+        </div>
 
+        <div className="contact-main-grid">
+          {/* Left Column: Direct Contact Info Cards */}
           <motion.div 
-            className="contact-details"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
+            className="contact-info-col"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
           >
-            {contactInfo.map((info, index) => (
-              <motion.div 
-                key={index} 
-                className="contact-detail-item"
-                variants={itemVariants}
-                whileHover={{ x: 10 }}
-              >
-                <div className="contact-detail-icon">
-                  <info.icon />
-                </div>
-                <div className="contact-detail-content">
-                  <span className="contact-detail-label">{info.label}</span>
-                  {info.href ? (
-                    <a href={info.href} className="contact-detail-value">{info.value}</a>
-                  ) : (
-                    <span className="contact-detail-value">{info.value}</span>
-                  )}
-                  {info.subValue && (
-                    <span className="contact-detail-sub">{info.subValue}</span>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
+            <div className="contact-info-card glass-card">
+              <h3 className="contact-info-title">Contact Information</h3>
+              <p className="contact-info-desc">
+                Feel free to reach out directly via email, phone, or connect with me across professional networks.
+              </p>
 
-        {/* Right Column - Contact Form */}
-        <motion.div 
-          className="contact-form-wrapper"
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <form onSubmit={handleSubmit} className="contact-form">
-            <motion.div 
-              className="form-group"
-              variants={formFieldVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              <div className="input-wrapper">
+              <div className="contact-methods-list">
+                <a href="mailto:rohitvidhate3@gmail.com" className="contact-method-item">
+                  <div className="method-icon-box">
+                    <FaEnvelope />
+                  </div>
+                  <div>
+                    <span className="method-label">Direct Email</span>
+                    <span className="method-val">rohitvidhate3@gmail.com</span>
+                  </div>
+                </a>
+
+                <a href="tel:+918624921303" className="contact-method-item">
+                  <div className="method-icon-box">
+                    <FaPhoneAlt />
+                  </div>
+                  <div>
+                    <span className="method-label">Phone / WhatsApp</span>
+                    <span className="method-val">+91 8624921303</span>
+                  </div>
+                </a>
+
+                <div className="contact-method-item">
+                  <div className="method-icon-box">
+                    <FaMapMarkerAlt />
+                  </div>
+                  <div>
+                    <span className="method-label">Location</span>
+                    <span className="method-val">Nashik, Maharashtra, India</span>
+                  </div>
+                </div>
+
+                <div className="contact-method-item">
+                  <div className="method-icon-box">
+                    <FaClock />
+                  </div>
+                  <div>
+                    <span className="method-label">Availability</span>
+                    <span className="method-val">Full-Time / Relocation / Remote</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social connect pills */}
+              <div className="contact-social-row">
+                <span className="social-connect-label">Find Me Online:</span>
+                <div className="social-pill-group">
+                  <a 
+                    href="https://github.com/rohitvidhate7" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="connect-pill"
+                    aria-label="GitHub Profile"
+                  >
+                    <FaGithub /> <span>GitHub</span>
+                  </a>
+                  <a 
+                    href="https://www.linkedin.com/in/rohit-vidhate-323b3a282" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="connect-pill"
+                    aria-label="LinkedIn Profile"
+                  >
+                    <FaLinkedin /> <span>LinkedIn</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Floating Dark Form */}
+          <motion.div 
+            className="contact-form-col"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <form onSubmit={handleSubmit} className="contact-floating-form glass-card">
+              <div className="form-inner-header">
+                <h3>Send a Message</h3>
+                <p>Fill out the fields below and I'll get back to you within 24 hours.</p>
+              </div>
+
+              {/* Floating Input: Name */}
+              <div className={`floating-group ${focusedField === 'name' || formData.name ? 'is-focused' : ''}`}>
                 <input
                   type="text"
-                  id="name"
+                  id="form-name"
                   name="name"
+                  required
                   value={formData.name}
                   onChange={handleChange}
-                  onFocus={() => handleFocus('name')}
-                  onBlur={() => handleBlur('name')}
+                  onFocus={() => setFocusedField('name')}
+                  onBlur={() => setFocusedField(null)}
+                  className="floating-input"
                   placeholder=" "
-                  required
                 />
-                <label htmlFor="name" className={focusedField === 'name' || formData.name ? 'active' : ''}>
-                  Your Name
+                <label htmlFor="form-name" className="floating-label">
+                  Your Full Name *
                 </label>
-                <div className="input-border"></div>
+                <div className="input-focus-line" />
               </div>
-            </motion.div>
 
-            <motion.div 
-              className="form-group"
-              variants={formFieldVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <div className="input-wrapper">
+              {/* Floating Input: Email */}
+              <div className={`floating-group ${focusedField === 'email' || formData.email ? 'is-focused' : ''}`}>
                 <input
                   type="email"
-                  id="email"
+                  id="form-email"
                   name="email"
+                  required
                   value={formData.email}
                   onChange={handleChange}
-                  onFocus={() => handleFocus('email')}
-                  onBlur={() => handleBlur('email')}
+                  onFocus={() => setFocusedField('email')}
+                  onBlur={() => setFocusedField(null)}
+                  className="floating-input"
                   placeholder=" "
-                  required
                 />
-                <label htmlFor="email" className={focusedField === 'email' || formData.email ? 'active' : ''}>
-                  Your Email
+                <label htmlFor="form-email" className="floating-label">
+                  Email Address *
                 </label>
-                <div className="input-border"></div>
+                <div className="input-focus-line" />
               </div>
-            </motion.div>
 
-            <motion.div 
-              className="form-group"
-              variants={formFieldVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-            >
-              <div className="input-wrapper">
+              {/* Floating Input: Phone */}
+              <div className={`floating-group ${focusedField === 'phone' || formData.phone ? 'is-focused' : ''}`}>
                 <input
                   type="tel"
-                  id="phone"
+                  id="form-phone"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  onFocus={() => handleFocus('phone')}
-                  onBlur={() => handleBlur('phone')}
+                  onFocus={() => setFocusedField('phone')}
+                  onBlur={() => setFocusedField(null)}
+                  className="floating-input"
                   placeholder=" "
                 />
-                <label htmlFor="phone" className={focusedField === 'phone' || formData.phone ? 'active' : ''}>
+                <label htmlFor="form-phone" className="floating-label">
                   Phone Number (Optional)
                 </label>
-                <div className="input-border"></div>
+                <div className="input-focus-line" />
               </div>
-            </motion.div>
 
-            <motion.div 
-              className="form-group"
-              variants={formFieldVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-            >
-              <div className="input-wrapper textarea-wrapper">
+              {/* Floating Textarea: Message */}
+              <div className={`floating-group ${focusedField === 'message' || formData.message ? 'is-focused' : ''}`}>
                 <textarea
-                  id="message"
+                  id="form-message"
                   name="message"
+                  rows="4"
+                  required
                   value={formData.message}
                   onChange={handleChange}
-                  onFocus={() => handleFocus('message')}
-                  onBlur={() => handleBlur('message')}
+                  onFocus={() => setFocusedField('message')}
+                  onBlur={() => setFocusedField(null)}
+                  className="floating-input floating-textarea"
                   placeholder=" "
-                  rows="5"
-                  required
-                ></textarea>
-                <label htmlFor="message" className={focusedField === 'message' || formData.message ? 'active' : ''}>
-                  Your Message
+                />
+                <label htmlFor="form-message" className="floating-label">
+                  Your Message or Project Details *
                 </label>
-                <div className="input-border"></div>
+                <div className="input-focus-line" />
               </div>
-            </motion.div>
 
-            <motion.button 
-              type="submit" 
-              className={`submit-btn ${status}`}
-              disabled={status === 'sending'}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-              whileHover={status !== 'sending' ? { scale: 1.02, boxShadow: '0 10px 40px rgba(0, 255, 255, 0.4)' } : {}}
-              whileTap={status !== 'sending' ? { scale: 0.98 } : {}}
-            >
-              <AnimatePresence mode="wait">
-                {status === 'sending' && (
-                  <motion.span
-                    key="sending"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="btn-content"
-                  >
-                    <span className="loading-spinner"></span>
-                    Sending...
-                  </motion.span>
-                )}
-                {status === 'success' && (
-                  <motion.span
-                    key="success"
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="btn-content success-content"
-                  >
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={status === 'sending'}
+                className={`btn-neon form-submit-btn ${status === 'sending' ? 'is-sending' : ''}`}
+              >
+                <AnimatePresence mode="wait">
+                  {status === 'sending' && (
+                    <motion.span 
+                      key="sending" 
+                      className="submit-status-msg"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                    >
+                      <span className="spinner-mini" />
+                      <span>Transmitting...</span>
+                    </motion.span>
+                  )}
+
+                  {status === 'success' && (
+                    <motion.span 
+                      key="success" 
+                      className="submit-status-msg"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0 }}
                     >
                       <FaCheck />
-                    </motion.div>
-                    Message Sent!
-                  </motion.span>
-                )}
-                {status === 'error' && (
-                  <motion.span
-                    key="error"
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0 }}
-                    className="btn-content error-content"
-                  >
-                    <FaTimes />
-                    Try Again
-                  </motion.span>
-                )}
-                {status === '' && (
-                  <motion.span
-                    key="default"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="btn-content"
-                  >
-                    Send Message
-                    <FaPaperPlane className="send-icon" />
-                  </motion.span>
-                )}
-              </AnimatePresence>
-            </motion.button>
-          </form>
-        </motion.div>
+                      <span>Message Received!</span>
+                    </motion.span>
+                  )}
+
+                  {status === 'error' && (
+                    <motion.span 
+                      key="error" 
+                      className="submit-status-msg error-msg"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                    >
+                      <FaTimes />
+                      <span>Failed to Send. Try Again</span>
+                    </motion.span>
+                  )}
+
+                  {status === '' && (
+                    <motion.span 
+                      key="idle" 
+                      className="submit-status-msg"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                    >
+                      <span>Send Message</span>
+                      <FaPaperPlane />
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+              </button>
+            </form>
+          </motion.div>
+        </div>
       </div>
     </section>
   )

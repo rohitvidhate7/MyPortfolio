@@ -1,8 +1,10 @@
-/* App.css - Global App Styles */
+/* App.css - Global App Styles & Overlays */
+
 .app {
   position: relative;
   overflow-x: hidden;
   min-height: 100vh;
+  background-color: var(--bg-dark);
 }
 
 /* Custom Cursor */
@@ -10,25 +12,28 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  background: radial-gradient(circle, var(--accent-cyan) 0%, transparent 70%);
+  border: 1.5px solid var(--neon-lime);
+  background: rgba(196, 255, 0, 0.15);
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: screen;
+  box-shadow: 0 0 12px rgba(196, 255, 0, 0.4);
+  transition: transform 0.05s ease-out;
 }
 
-/* Scroll Progress Bar */
+/* Top Scroll Progress Bar */
 .scroll-progress {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple), var(--accent-blue));
+  height: 3px;
+  background: var(--neon-lime);
+  box-shadow: 0 0 10px rgba(196, 255, 0, 0.6);
   transform-origin: 0%;
-  z-index: 10000;
+  z-index: 10001;
 }
 
 /* Main Content */
@@ -37,109 +42,8 @@ main {
   z-index: 1;
 }
 
-/* Selection */
-::selection {
-  background: var(--accent-purple);
-  color: var(--text-primary);
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-dark);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--accent-purple), var(--accent-blue));
-}
-
-/* Smooth Scroll */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Section Base Styles */
-section {
-  position: relative;
-  padding: clamp(3rem, 5vw, 5rem) 0;
-  overflow: hidden;
-}
-
 @media (max-width: 768px) {
-  section {
-    padding: clamp(2.5rem, 4vw, 3.75rem) 0;
-  }
-}
-
-@media (max-width: 480px) {
-  section {
-    padding: clamp(2rem, 3vw, 2.5rem) 0;
-  }
-}
-
-/* Container */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Section Title */
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 3rem;
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-cyan) 50%, var(--accent-purple) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-@media (max-width: 768px) {
-  .section-title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-}
-
-/* Floating Shapes Animation */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-20px) rotate(180deg);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: scale(1.1);
-  }
-}
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+  .custom-cursor {
+    display: none;
   }
 }

@@ -3,7 +3,7 @@ import { motion, useScroll, useSpring } from 'framer-motion'
 import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
 import About from './components/About/About'
-import Skills from './components/Skills/Skills'
+import Services from './components/Services/Services'
 import Projects from './components/Projects/Projects'
 import Certificates from './components/Certificates/Certificates'
 import Contact from './components/Contact/Contact'
@@ -11,7 +11,7 @@ import Footer from './components/Footer/Footer'
 import './App.css'
 
 function App() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 })
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -28,10 +28,7 @@ function App() {
     }
 
     window.addEventListener("mousemove", mouseMove)
-
-    return () => {
-      window.removeEventListener("mousemove", mouseMove)
-    }
+    return () => window.removeEventListener("mousemove", mouseMove)
   }, [])
 
   return (
@@ -40,29 +37,29 @@ function App() {
       <motion.div 
         className="custom-cursor"
         animate={{
-          x: mousePosition.x - 10,
-          y: mousePosition.y - 10
+          x: mousePosition.x - 9,
+          y: mousePosition.y - 9
         }}
-        transition={{ type: "tween", ease: "backOut", duration: 0.1 }}
+        transition={{ type: "tween", ease: "backOut", duration: 0.08 }}
       />
       
       {/* Scroll Progress Bar */}
       <motion.div className="scroll-progress" style={{ scaleX }} />
 
-      {/* Navbar */}
+      {/* Floating Glassmorphic Navbar */}
       <Navbar />
 
-      {/* Main Content */}
+      {/* Main Content Sections */}
       <main>
         <Hero />
         <About />
-        <Skills />
+        <Services />
         <Projects />
         <Certificates />
         <Contact />
       </main>
 
-      {/* Footer */}
+      {/* Big Bold Brand Footer */}
       <Footer />
     </div>
   )
