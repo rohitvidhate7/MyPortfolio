@@ -1,62 +1,40 @@
 import { motion } from 'framer-motion'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
-import ecom from '../../Assets/ecom.png'
-import htl from '../../Assets/htl img.png'
-import music from '../../Assets/music img.png'
-import glry from '../../Assets/glry img.png'
-import calci from '../../Assets/calci1.png'
+import nexus from '../../Assets/project-management-software-blog-1024x578-1.jpeg'
+import HMS from '../../Assets/HMSimg.png'
+import RMS from '../../Assets/RMSimg.webp'
 import './Projects.css'
 
 const projects = [
   {
     id: "01",
-    title: 'Clothing E-Commerce Platform',
+    title: 'NexusAI – AI-Powered Smart Project Management & Team Collaboration Platform',
     category: 'Full Stack MERN',
-    description: 'A full-stack modern fashion e-commerce application equipped with user authentication, product catalog filters, dynamic shopping cart, and Stripe payment integration for secure checkout.',
-    image: ecom,
-    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Stripe'],
-    liveLink: 'https://github.com/rohitvidhate7/Clothing-E-commerce.git',
-    githubLink: 'https://github.com/rohitvidhate7/Clothing-E-commerce.git'
+    description: 'Developed a MERN-based project management platform with AI-powered task assistance, team collaboration, authentication, and real-time features.',
+    image: nexus,
+    tags: ['Node.js', 'Express.js', 'MongoDB', 'Gemini AI','Socket.IO'],
+    liveLink: 'https://nexusai-pm.vercel.app/auth/login',
+    githubLink: 'https://github.com/rohitvidhate7/NexusAI'
   },
   {
     id: "02",
-    title: 'Restaurant & Hospitality Portal',
+    title: 'Hospital Management System',
     category: 'Full Stack Web App',
-    description: 'A comprehensive hotel reservation and dining management platform with real-time table availability, order tracking, responsive booking workflows, and an admin management dashboard.',
-    image: htl,
-    tags: ['React', 'Express', 'MySQL', 'Node.js', 'REST API'],
-    liveLink: 'https://github.com/rohitvidhate7/React-Restaurant-Project.git',
-    githubLink: 'https://github.com/rohitvidhate7/React-Restaurant-Project.git'
+    description: 'Developed a full-stack hospital management system to manage patients, doctors, appointments, and billing using MongoDB.',
+    image: HMS,
+    tags: ['React', 'Express', 'MongoDB', 'Node.js', 'REST API'],
+    liveLink: 'https://github.com/rohitvidhate7/Hospital-Management-System',
+    githubLink: 'https://github.com/rohitvidhate7/Hospital-Management-System'
   },
   {
     id: "03",
-    title: 'BeatStream Music Player',
-    category: 'Frontend & APIs',
-    description: 'Feature-rich streaming music player featuring customizable playlists, audio visualizer canvas, Spotify API integration, volume modulation, and persistent queue state.',
-    image: music,
-    tags: ['React', 'Redux Toolkit', 'Firebase', 'Spotify API'],
-    liveLink: 'https://github.com/rohitvidhate7/MyMusic.git',
-    githubLink: 'https://github.com/rohitvidhate7/MyMusic.git'
-  },
-  {
-    id: "04",
-    title: 'Aura Interactive Gallery',
-    category: 'Motion & Visual UI',
-    description: 'Curated image gallery application with smart categorization, instant search, responsive fluid grid layouts, and buttery smooth lightbox transitions using Framer Motion.',
-    image: glry,
-    tags: ['React', 'Framer Motion', 'CSS Grid', 'Vite'],
-    liveLink: 'https://github.com/rohitvidhate7/MyGallery',
-    githubLink: 'https://github.com/rohitvidhate7/MyGallery'
-  },
-  {
-    id: "05",
-    title: 'Precision Scientific Calculator',
-    category: 'Vanilla JavaScript',
-    description: 'Responsive desktop-grade scientific calculator with memory registers, trigonometry functions, live history logs, and instant keyboard navigation.',
-    image: calci,
-    tags: ['JavaScript (ES6+)', 'Modern UI', 'CSS3', 'HTML5'],
-    liveLink: 'https://github.com/rohitvidhate7/MyCalculator',
-    githubLink: 'https://github.com/rohitvidhate7/MyCalculator'
+    title: 'Restaurant Management System',
+    category: 'Full Stack Web App ',
+    description: 'Developed a restaurant management system for handling orders, billing, inventory, and menu management with MongoDB.',
+    image: RMS,
+    tags: ['React', 'Express', 'MongoDB', 'Node.js', 'REST API'],
+    liveLink: 'https://github.com/rohitvidhate7/React-Restaurant-Project',
+    githubLink: 'https://github.com/rohitvidhate7/React-Restaurant-Project'
   }
 ]
 
