@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { FaLinkedin, FaGithub, FaEnvelope, FaFileDownload, FaArrowRight, FaCode } from 'react-icons/fa'
 import { assets } from './assets'
-import resumePDF from '../../Assets/Rohit-vidhate-CV.pdf'
+import resumePDF from '../../Assets/Rohit_Vidhate_Resume.pdf'
 import './Hero.css'
 
 const Hero = () => {
@@ -107,7 +107,7 @@ const Hero = () => {
             href={resumePDF} 
             target="_blank" 
             rel="noopener noreferrer" 
-            download="Rohit-vidhate-CV.pdf"
+            download="Rohit_Vidhate_Resume.pdf"
             className="btn-dark btn-icon-only"
             title="Download Resume"
           >
